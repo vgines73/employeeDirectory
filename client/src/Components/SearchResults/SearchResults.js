@@ -1,10 +1,15 @@
 import React from 'react'
+import Table from '../Table/Table'
 
-const SearchResults = () => {
+const SearchResults = (props) => {
     return (
-        <div>
-            <h1>Hello Search Results</h1>
-        </div>
+        <ul>
+            {props.results.map(result => (
+                <Table>
+                    {result}
+                </Table>
+            ))}
+        </ul>
     )
 }
 

@@ -1,10 +1,27 @@
 import React from 'react'
-
-const SearchForm = () => {
+import './SearchForm.css'
+const SearchForm = (props) => {
     return (
-        <div>
-            <h1>Hello Search Form</h1>
-        </div>
+        <form className="search">
+            <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <input 
+                type="text"
+                value={props.search}
+                onChange={props.handleInputChange}
+                name="name"
+                className="form-control"
+                placeholder="Enter First or Last Name"
+                />
+                <datalist id="name">
+                    {props.name.map(name => (
+                        <option value={name} key={name}></option>,
+                        <option value={name} key={name}></option>
+                    ))}
+                </datalist>
+                <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
+            </div>
+        </form>
     )
 }
 

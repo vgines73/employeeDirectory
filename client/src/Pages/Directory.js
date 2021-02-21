@@ -3,8 +3,8 @@ import Table from '../Components/Table/Table'
 
 const Directory = () => {
     return (
-        <div>
-           <h1>Hello from Directory</h1> 
+        <div><br/>
+           <h1 className="text-center">BREH's Employee Directory</h1><br/>
            <Table />
         </div>
     )
