@@ -35,8 +35,8 @@ export default class Search extends Component {
     }
     render() {
         return (
-            <div>
-                <h1 className="text-center">Search By Name</h1>
+            <div><br/>
+                <h1 className="text-center">Search Employee</h1><br/>
                 <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}

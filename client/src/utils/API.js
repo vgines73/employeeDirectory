@@ -7,7 +7,7 @@ export default {
         return axios.get(api)
     },
     getNameOfEmployee: function() {
-        return axios.get(api + "name/")
+        return axios.get(api)
     },
-    
+
 }
