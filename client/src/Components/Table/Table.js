@@ -16,24 +16,26 @@ const Table = (props) => {
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-      
-                    {console.log(props.results)}
-                    {props.results.map(name => (
-                        <td key={name.first}>{name.first}</td>
-                    ))}
+                        <td key={props.first}>{props.first}</td>
+                    {/* {console.log(props.results)} */}
+                    {/* {props.results.map(name => (
+                        <td key={name.first}>
+                            {name.first}
+                        </td>
+                    ))} */}
 
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                        {/* <td>{props.last}</td> */}
+                        <td>{props.last}</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    {/* <td>{props.email}</td> */}
+                    <td>{props.email}</td>
                 </tr>
                 <tr>
                     <th scope="row">4</th>
-                    {/* <td>{props.phone}</td> */}
+                    <td>{props.phone}</td>
                 </tr>
             </tbody>
         </table>

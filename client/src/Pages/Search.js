@@ -7,8 +7,10 @@ export default class Search extends Component {
     state ={
         search: "",
         name: [],
-        // first: "",
-        // last: "",
+        first: [],
+        last: [],
+        email: [],
+        phone: [],
         results: [],
         error: ""
     };
@@ -16,8 +18,11 @@ export default class Search extends Component {
     componentDidMount() {
         API.getNameList()
         // .then(res => console.log(res.data.results[0].name))
-          .then(res => this.setState({ name: res.data.results}))
-        .catch(err => console.log(err))
+            .then(res => {
+                console.log(res.data.results[0].name)
+                this.setState({ results: res.data.results})
+            })
+            .catch(err => console.log(err))
     };
     handleInputChange = event => {
         this.setState({ search: event.target.value});
