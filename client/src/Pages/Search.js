@@ -6,15 +6,11 @@ import API from '../utils/API'
 export default class Search extends Component {
     state ={
         search: "",
-        employee: [],
-        first: "",
-        last: "",
-        email: "",
-        phone: "",
         results: [],
         error: ""
     };
 
+    
     componentDidMount() {
         API.getNameList()
         // .then(res => console.log(res.data.results[0].name))
@@ -22,10 +18,6 @@ export default class Search extends Component {
                 // console.log(res.data.results)
                 this.setState({ 
                     results: res.data.results,
-                    // first: res.data.results.name.first,
-                    // last: res.data.results.name.last,
-                    // email: res.data.results.email,
-                    // phone: res.data.results.phone,
                 })
             })
             .catch(err => console.log(err))
