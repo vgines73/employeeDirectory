@@ -16,7 +16,7 @@ const Table = (props) => {
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                        <td>{props.results}</td>
+                        <td>{props.first}</td>
                     {/* {console.log(props.results)} */}
                     {/* {props.results.map(name => (
                         <td key={name.first}>

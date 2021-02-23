@@ -3,13 +3,16 @@ import Table from '../Table/Table'
 
 const SearchResults = (props) => {
     console.log(props.results);
-
+    const employees = props.results
     return (
         <Table>
-            {/* {props.results.map((name) => (
-                <h2 key={name.first}>{name.first}</h2>
-            ))} */}
-            {props.children}
+            {employees.map((employee) => (
+                <div key={employee.id}>
+                    {console.log(employee.id)}
+                    {employee.name.first}
+
+                </div>
+            ))}
         </Table>
     )
 }
