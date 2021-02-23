@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Table = (props) => {
-    console.log(props.results);
+    console.log(props);
     return (
         <table className="table table-dark table-striped">
             <thead>
