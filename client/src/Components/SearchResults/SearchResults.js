@@ -4,8 +4,8 @@ import Table from '../Table/Table'
 const SearchResults = (props) => {
     return (
         <ul>
-            {props.results.map(name => (
-                <Table key={name.first}>
+            {props.results.map((name, first) => (
+                <Table key={first}>
                     {name.first}
                 </Table>
             ))}
