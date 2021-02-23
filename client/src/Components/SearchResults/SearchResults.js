@@ -4,9 +4,9 @@ import Table from '../Table/Table'
 const SearchResults = (props) => {
     return (
         <ul>
-            {props.results.map(result => (
-                <Table>
-                    {result}
+            {props.results.map(name => (
+                <Table key={name.first}>
+                    {name.first}
                 </Table>
             ))}
         </ul>
