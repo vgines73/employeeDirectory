@@ -2,14 +2,15 @@ import React from 'react'
 import Table from '../Table/Table'
 
 const SearchResults = (props) => {
+    console.log(props.results);
+
     return (
-        <ul>
-            {props.results.map((name, first) => (
-                <Table key={first}>
-                    {name.first}
-                </Table>
-            ))}
-        </ul>
+        <Table>
+            {/* {props.results.map((name) => (
+                <h2 key={name.first}>{name.first}</h2>
+            ))} */}
+            {props.children}
+        </Table>
     )
 }
 

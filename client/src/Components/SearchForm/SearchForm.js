@@ -7,16 +7,16 @@ const SearchForm = (props) => {
                 <label htmlFor="name">Name:</label>
                 <input 
                 type="text"
-                value={props.search}
+                value={props.results.name}
                 onChange={props.handleInputChange}
                 name="name"
                 className="form-control"
                 placeholder="Enter First or Last Name"
                 />
                 <datalist id="name">
-                    {props.name.map(name => (
-                        <option value={name.first} key={name.first}></option>,
-                        <option value={name.last} key={name.last}></option>
+                    {props.results.map((name, first) => (
+                        <option value={name.first} key={first}></option>
+                        // <option value={name.last} key={last}></option>
                     ))}
                 </datalist>
                 <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>

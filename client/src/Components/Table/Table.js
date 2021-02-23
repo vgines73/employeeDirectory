@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Table = (props) => {
-  
+    console.log(props.results);
     return (
         <table className="table table-dark table-striped">
             <thead>
@@ -16,7 +16,7 @@ const Table = (props) => {
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                        <td key={props.first}>{props.first}</td>
+                        <td>{props.results}</td>
                     {/* {console.log(props.results)} */}
                     {/* {props.results.map(name => (
                         <td key={name.first}>

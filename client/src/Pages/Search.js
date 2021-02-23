@@ -6,11 +6,11 @@ import API from '../utils/API'
 export default class Search extends Component {
     state ={
         search: "",
-        name: [],
-        first: [],
-        last: [],
-        email: [],
-        phone: [],
+        employee: [],
+        first: "",
+        last: "",
+        email: "",
+        phone: "",
         results: [],
         error: ""
     };
@@ -19,8 +19,14 @@ export default class Search extends Component {
         API.getNameList()
         // .then(res => console.log(res.data.results[0].name))
             .then(res => {
-                console.log(res.data.results[0].name)
-                this.setState({ results: res.data.results})
+                // console.log(res.data.results)
+                this.setState({ 
+                    results: res.data.results,
+                    // first: res.data.results.name.first,
+                    // last: res.data.results.name.last,
+                    // email: res.data.results.email,
+                    // phone: res.data.results.phone,
+                })
             })
             .catch(err => console.log(err))
     };
@@ -45,9 +51,13 @@ export default class Search extends Component {
                 <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
-                    name={this.state.name}
+                    results={this.state.results}
                 />
+                {this.state.results.length === 0 ?
+                <p>loading...</p>: 
                 <SearchResults results={this.state.results} />
+            }
+
             </div>
         )
     }
