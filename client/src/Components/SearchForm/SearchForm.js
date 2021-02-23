@@ -7,8 +7,9 @@ const SearchForm = (props) => {
                 <label htmlFor="name">Name:</label>
                 <input 
                 type="text"
-                value={props.results.name}
-                onChange={props.handleInputChange}
+                value={props.search}
+                // onChange={props.handleInputChange}
+                onChange={props.filterList}
                 name="name"
                 className="form-control"
                 placeholder="Enter First or Last Name"

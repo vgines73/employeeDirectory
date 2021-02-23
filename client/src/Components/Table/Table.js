@@ -2,6 +2,7 @@ import React from 'react'
 
 const Table = (props) => {
     console.log(props.results);
+    
     return (
         <table className="table table-dark table-striped">
             <thead>
@@ -19,7 +20,7 @@ const Table = (props) => {
                         <td>{props.first}</td>
                     {/* {console.log(props.results)} */}
                     {/* {props.results.map(name => (
-                        <td key={name.first}>
+                        <td key={name.id}>
                             {name.first}
                         </td>
                     ))} */}
@@ -27,15 +28,15 @@ const Table = (props) => {
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                        {/* <td>{props.last}</td> */}
+                        <td>{props.last}</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    {/* <td>{props.email}</td> */}
+                    <td>{props.email}</td>
                 </tr>
                 <tr>
                     <th scope="row">4</th>
-                    {/* <td>{props.phone}</td> */}
+                    <td>{props.phone}</td>
                 </tr>
             </tbody>
         </table>

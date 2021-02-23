@@ -4,28 +4,30 @@ import SearchResults from '../Components/SearchResults/SearchResults';
 import API from '../utils/API'
 
 export default class Search extends Component {
-    state ={
+    state = {
         search: "",
-        employee: [],
-        first: "",
-        last: "",
-        email: "",
-        phone: "",
+        allData: [],
+        employees: [],
         results: [],
         error: ""
     };
 
+    filterList = (event) => {
+        let employee = this.state.results;
+        let employees = employee.filter((employee) => {
+            return employee.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
+        });
+        this.setState({employees: employees})
+    }
     componentDidMount() {
         API.getNameList()
         // .then(res => console.log(res.data.results[0].name))
             .then(res => {
                 // console.log(res.data.results)
                 this.setState({ 
-                    results: res.data.results,
-                    // first: res.data.results.name.first,
-                    // last: res.data.results.name.last,
-                    // email: res.data.results.email,
-                    // phone: res.data.results.phone,
+                    // results: res.data.results,
+                    allData: this.props.content,
+                    employees: this.props.content
                 })
             })
             .catch(err => console.log(err))
@@ -50,14 +52,18 @@ export default class Search extends Component {
                 <h1 className="text-center">Search Employee</h1><br/>
                 <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
-                    handleInputChange={this.handleInputChange}
+                    // handleInputChange={this.handleInputChange}
+                    filterList={this.filterList}
                     results={this.state.results}
                 />
                 {this.state.results.length === 0 ?
                 <p>loading...</p>: 
-                <SearchResults results={this.state.results} />
+                this.state.employees(function(employee) {
+                    <SearchResults results={this.state.results} key={employee.id}>
+                        {employee}
+                    </SearchResults>
+               })
             }
-
             </div>
         )
     }
