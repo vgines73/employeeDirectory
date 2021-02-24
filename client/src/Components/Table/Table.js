@@ -2,15 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 
 const Table = () => {
-    // console.log(props);
+    
     const [employees, setEmployees] = useState([]);
-
+    console.log();
     return (
         <div>
             {employees.map((employee) => (
                 <div className="preview" key={employee.id}>
-                    <h2>{employee.gender}</h2>
-                    <p>{employee.name}</p>
+                    <h2>{employee.name}</h2>
+                    <p>{employee.gender}</p>
                 </div>
             ))}
         </div>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = "https://randomuser.me/api/?results=15&nat=us"
+const api = "https://randomuser.me/api/?results=500&nat=us"
 
 export default {
     getNameList: function() {
