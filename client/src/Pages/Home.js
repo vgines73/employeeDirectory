@@ -3,7 +3,8 @@ import SearchForm from '../Components/SearchForm/SearchForm';
 import SearchResults from '../Components/SearchResults/SearchResults';
 import API from '../utils/API'
 
-export default class Search extends Component {
+
+export default class Home extends Component {
     state ={
         search: "",
         results: [],

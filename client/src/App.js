@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Nav from './Components/Nav/Nav';
 import Wrapper from './Components/Wrapper/Wrapper';
-import Directory from './Pages/Directory';
-import Search from './Pages/Search';
+import Home from './Pages/Home';
 
 function App() {
   return (
@@ -14,9 +13,7 @@ function App() {
         <div>
           <Nav />
           <Wrapper>
-            {/* <Route exact path="/" component={Directory} />
-            <Route exact path="/directory" component={Directory} /> */}
-            <Route exact path="/search" component={Search} />
+            <Route exact path="/" component={Home} />
           </Wrapper>
         </div>
       </Router>
