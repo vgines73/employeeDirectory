@@ -1,15 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
+// import { useState } from 'react'
 
-const Table = () => {
+const Table = (props) => {
     
-    const [employees, setEmployees] = useState([]);
-    console.log();
+    // const [employees, setEmployees] = useState([]);
+    console.log(props.results);
     return (
         <div>
-            {employees.map((employee) => (
-                <div className="preview" key={employee.id}>
-                    <h2>{employee.name}</h2>
+            <h1>table comp</h1>
+            {props.results.map((employee, index) => (
+  
+                <div className="preview" key={index}>
+                    <h2>{employee.name.first}</h2>
                     <p>{employee.gender}</p>
                 </div>
             ))}

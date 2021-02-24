@@ -16,8 +16,8 @@ const SearchForm = (props) => {
                 placeholder="Enter First or Last Name"
                 />
                 <datalist id="results">
-                    {props.results.map((name, first) => (
-                        <option value={name.first} key={first}></option>
+                    {props.results.map((employee, index) => (
+                        <option value={employee.name.first} key={index}></option>
                         // <option value={name.last} key={last}></option>
                     ))}
                 </datalist>

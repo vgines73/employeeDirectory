@@ -14,8 +14,8 @@ function App() {
         <div>
           <Nav />
           <Wrapper>
-            <Route exact path="/" component={Directory} />
-            <Route exact path="/directory" component={Directory} />
+            {/* <Route exact path="/" component={Directory} />
+            <Route exact path="/directory" component={Directory} /> */}
             <Route exact path="/search" component={Search} />
           </Wrapper>
         </div>
