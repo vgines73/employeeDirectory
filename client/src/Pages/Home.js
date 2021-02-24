@@ -41,11 +41,11 @@ export default class Home extends Component {
         return (
             <div><br/>
                 <h1 className="text-center">Search Employee</h1><br/>
-                <SearchForm 
+                {/* <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
                     results={this.state.results}
-                />
+                /> */}
                 {this.state.results.length === 0 ?
                 <p>loading...</p>: 
                 <SearchResults results={this.state.results} />

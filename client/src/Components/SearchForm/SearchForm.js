@@ -17,8 +17,8 @@ const SearchForm = (props) => {
                 />
                 <datalist id="results">
                     {props.results.map((employee, index) => (
-                        <option value={employee.name.first} key={index}></option>
-                        // <option value={name.last} key={last}></option>
+                        <option value={employee.name.first} key={index}></option>,
+                        <option value={employee.name.last} key={index}></option>
                     ))}
                 </datalist>
                 <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
