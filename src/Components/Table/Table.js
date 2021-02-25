@@ -2,40 +2,25 @@ import React, { useState } from 'react';
 
 const Table = (props) => {
   console.log(props.results);
-  const { results } = props;
-  const [sortConfig, setSortConfig] = useState(null)
-  const [sortButton, setSortButton] = useState()
+  const { results } = props
+  const [sortField, setSortField] = useState(null);
+  const [sortDirection, setSortDirection] = useState();
+  let sortEmployees = [...results]
+  if (sortField !== null) {
+    sortEmployees.sort((a, b) => {
+      let beginning = `a.${sortField} < b.${sortField}`;
+      // console.log(beginning);
+      let end = `a.${sortField} > b.${sortField}`;
 
-  React.useMemo(() => {
-    let sortedEmployees = [...results];
-
-    if (sortConfig !== null) {
-      sortedEmployees.sort(() => {
-        let v = `a.${sortConfig} < b.${sortConfig}`;
-        let g = `a.${sortConfig} > b.${sortConfig}`;
-        if (eval(v)) {
-          return sortButton.direction === 'descending' ? -1 : 1;
-        } else if (eval(g)) {
-          return sortButton.direction === 'ascending' ? 1 : -1;
-        } else
-          return 0
-      });
-    }
-    return sortedEmployees;
-  }, [results, sortConfig]);
-
-  const requestSort = key => {
-    let direction = 'ascending';
-    console.log(key, sortButton);
-    console.log(sortButton);
-    if (sortButton.key === key && sortButton.direction === 'ascending') {
-      direction = 'descending';
-    }
-    if (key != undefined) {
-      setSortConfig({ key, direction })
-    }
-  };
-  
+      if (eval(beginning)) {
+        return sortDirection === 'ascending' ? -1 : 1;
+      }
+      if (eval(end)) {
+        return sortDirection === 'ascending' ? 1 : - 1;
+      }
+      return 0;
+    });
+  }
   return (
     <div>
       <table className="table table-dark table-striped">
@@ -43,34 +28,39 @@ const Table = (props) => {
           <tr>
             <th scope="col">
               <button type="button" onClick={() => {
-                setSortButton("name.first");
-                // console.log(sortButton);
-                requestSort("name.first");
-              }
-              }>First</button>
-              </th>
-            <th scope="col">
-               <button type="button" onClick={() => requestSort("name.last")}>Last</button>
+                setSortField("name.first");
+                sortDirection === 'ascending' ? setSortDirection('descending') : setSortDirection('ascending');
+              }}>
+                First
+              </button>
               </th>
             <th scope="col">
               <button type="button" onClick={() => {
-                
-                setSortConfig("email");
-                console.log(sortConfig);
-                requestSort("email")
-              }
-              }>Email</button>
-              </th>
+                setSortField("name.last");
+                sortDirection === 'ascending' ? setSortDirection('descending') : setSortDirection('ascending');
+              }}>
+                Last
+              </button>
+            </th>
             <th scope="col">
-                <button type="button" onClick={() => requestSort("phone")}>Phone</button>
-              </th>
+              <button type="button" onClick={() => {
+                setSortField("email");
+                sortDirection === 'ascending' ? setSortDirection('descending') : setSortDirection('ascending');
+              }}>
+                Email
+              </button>
+            </th>
             <th scope="col">
-              <button type="button" onClick={() => requestSort("cell")}>Cell</button>
-              </th>
+                Phone
+            </th>
+            <th scope="col">
+                Cell
+            </th>
           </tr>
         </thead>
         <tbody>
-          {props.results.map((employee, index) => (
+          {
+            sortEmployees.map((employee, index) => (
             <tr key={index}>
               <td>{employee.name.first}</td>
               <td>{employee.name.last}</td>
