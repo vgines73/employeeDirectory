@@ -28,14 +28,20 @@ export default class Home extends Component {
     };
     handleFormSubmit = event => {
         event.preventDefault();
-        API.getNameOfEmployee(this.state.search)
-            .then(res => {
-                if (res.data.status === "error") {
-                    throw new Error(res.data.results)
-                }
-                this.setState({ results: res.data.results, error: ""})
-            })
-            .catch(err => this.setState({ error: err.results}))
+        this.setState({
+            ...this.state,
+            results: this.state.results.filter(
+                (employee) => employee.name.first === this.state.search
+            )
+        })
+        // API.getNameOfEmployee(this.state.search)
+        //     .then(res => {
+        //         if (res.data.status === "error") {
+        //             throw new Error(res.data.results)
+        //         }
+        //         this.setState({ results: res.data.results, error: ""})
+        //     })
+        //     .catch(err => this.setState({ error: err.results}))
     }
     render() {
         return (

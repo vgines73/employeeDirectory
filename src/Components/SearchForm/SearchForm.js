@@ -20,6 +20,7 @@ const SearchForm = (props) => {
                         <option value={employee.name.first} key={index}></option>
                     ))}
                 </datalist>
+                <button type="submit" className="btn btn-primary">Reset</button>
                 <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
             </div>
         </form>
