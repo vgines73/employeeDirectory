@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-
+//this sorts the table where employees first name, last name, and email is sorted ascending/descending
 const Table = (props) => {
   // console.log(props.results);
+  // created a copy of the prop to alter the original array
   const { results } = props
   const [sortField, setSortField] = useState(null);
   const [sortDirection, setSortDirection] = useState();
@@ -22,12 +23,14 @@ const Table = (props) => {
     });
   }
   return (
+    // shows table where user can sort by clicking the button for first name, last name, and email
     <div>
       <table className="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">
-              <button type="button" onClick={() => {
+              {/* button that sorts ascending/descending for first name*/}
+              <button className="btn btn-primary"type="button" onClick={() => {
                 setSortField("name.first");
                 sortDirection === 'ascending' ? setSortDirection('descending') : setSortDirection('ascending');
               }}>
@@ -35,7 +38,8 @@ const Table = (props) => {
               </button>
               </th>
             <th scope="col">
-              <button type="button" onClick={() => {
+              {/* button that sorts ascending/descending for last name*/}
+              <button className="btn btn-primary" type="button" onClick={() => {
                 setSortField("name.last");
                 sortDirection === 'ascending' ? setSortDirection('descending') : setSortDirection('ascending');
               }}>
@@ -43,7 +47,8 @@ const Table = (props) => {
               </button>
             </th>
             <th scope="col">
-              <button type="button" onClick={() => {
+              {/* button that sorts ascending/descending for email*/}
+              <button className="btn btn-primary" type="button" onClick={() => {
                 setSortField("email");
                 sortDirection === 'ascending' ? setSortDirection('descending') : setSortDirection('ascending');
               }}>
@@ -59,6 +64,7 @@ const Table = (props) => {
           </tr>
         </thead>
         <tbody>
+          {/* loops through and lists all values for the employee*/}
           {
             sortEmployees.map((employee, index) => (
             <tr key={index}>
