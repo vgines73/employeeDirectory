@@ -26,9 +26,9 @@ const Table = (props) => {
 
   const requestSort = key => {
     let direction = 'ascending';
-    console.log(key, sortConfig);
+    console.log(key, sortButton);
     console.log(sortButton);
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+    if (sortButton.key === key && sortButton.direction === 'ascending') {
       direction = 'descending';
     }
     if (key != undefined) {
@@ -44,7 +44,7 @@ const Table = (props) => {
             <th scope="col">
               <button type="button" onClick={() => {
                 setSortButton("name.first");
-                console.log(sortButton);
+                // console.log(sortButton);
                 requestSort("name.first");
               }
               }>First</button>
