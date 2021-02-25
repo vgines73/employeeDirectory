@@ -1,7 +1,7 @@
 import React from 'react'
 import './SearchForm.css'
 const SearchForm = (props) => {
-    console.log(props.results);
+    // console.log(props.results);
     return (
         <form className="search">
             <div className="form-group">
@@ -17,8 +17,7 @@ const SearchForm = (props) => {
                 />
                 <datalist id="results">
                     {props.results.map((employee, index) => (
-                        <option value={employee.name.first} key={index}></option>,
-                        <option value={employee.name.last} key={index}></option>
+                        <option value={employee.name.first} key={index}></option>
                     ))}
                 </datalist>
                 <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
