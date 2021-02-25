@@ -40,12 +40,12 @@ export default class Home extends Component {
     render() {
         return (
             <div><br/>
-                <h1 className="text-center">Search Employee</h1><br/>
-                {/* <SearchForm 
+                <h1 className="text-center">Breh's Employee Directory</h1><br/>
+                <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
                     results={this.state.results}
-                /> */}
+                />
                 {this.state.results.length === 0 ?
                 <p>loading...</p>: 
                 <SearchResults results={this.state.results} />
