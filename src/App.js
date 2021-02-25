@@ -4,6 +4,7 @@ import './App.css';
 import Nav from './Components/Nav/Nav';
 import Wrapper from './Components/Wrapper/Wrapper';
 import Home from './Pages/Home';
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Wrapper>
             <Route exact path="/" component={Home} />
           </Wrapper>
+          <Footer />
         </div>
       </Router>
     </div>

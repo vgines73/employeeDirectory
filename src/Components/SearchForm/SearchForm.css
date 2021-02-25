@@ -8,3 +8,7 @@ form.search button[type="submit"] {
     margin-top: 10px;
     margin-left: 10px;
 }
+
+form.search label {
+    font-weight: bolder;
+}

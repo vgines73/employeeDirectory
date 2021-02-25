@@ -3,7 +3,13 @@ import SearchForm from '../Components/SearchForm/SearchForm';
 import SearchResults from '../Components/SearchResults/SearchResults';
 import API from '../utils/API'
 
+const styles = {
+    spanStyle: {
+        color: "red",
+        fontFamily: ['RocknRoll One', "sans-serif"]
+    }
 
+}
 export default class Home extends Component {
     // set up initial state
     state ={
@@ -43,7 +49,7 @@ export default class Home extends Component {
         return (
             // return everything on the screen SearchForm is the search bar; SearchResults is the table of employees
             <div><br/>
-                <h1 className="text-center">Breh's Employee Directory</h1><br />
+                <h1 className="text-center"><span style={styles.spanStyle}>BREH's</span> Employee Directory</h1><br />
                 <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}

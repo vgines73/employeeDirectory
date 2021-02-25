@@ -6,7 +6,7 @@ const SearchForm = (props) => {
     return (
         <form className="search">
             <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name" >Name:</label>
                 <input 
                 type="text"
                 value={props.search}
