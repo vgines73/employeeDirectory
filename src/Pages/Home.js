@@ -16,7 +16,7 @@ export default class Home extends Component {
         API.getNameList()
         // .then(res => console.log(res.data.results[0].name))
             .then(res => {
-                console.log(res.data.results)
+                // console.log(res.data.results)
                 this.setState({ 
                     results: res.data.results,
                 })

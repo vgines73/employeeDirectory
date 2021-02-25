@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Table = (props) => {
-  console.log(props.results);
+  // console.log(props.results);
   const { results } = props
   const [sortField, setSortField] = useState(null);
   const [sortDirection, setSortDirection] = useState();

@@ -13,7 +13,7 @@ const SearchForm = (props) => {
                 list="results"
                 name="name"
                 className="form-control"
-                placeholder="Enter First or Last Name"
+                placeholder="Enter First Name"
                 />
                 <datalist id="results">
                     {props.results.map((employee, index) => (
