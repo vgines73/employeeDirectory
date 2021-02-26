@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = "https://randomuser.me/api/?results=50&nat=us"
+const api = "https://randomuser.me/api/?results=500&nat=us"
 
 export default {
     // get all employees
