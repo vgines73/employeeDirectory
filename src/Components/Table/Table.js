@@ -23,7 +23,7 @@ const Table = (props) => {
     });
   }
   return (
-    // shows table where user can sort by clicking the button for first name, last name, and email
+    // return table with values and where user can sort by clicking the button for first name, last name, email, phone, and cell
     <div>
       <table className="table table-dark table-striped">
         <thead>
@@ -81,7 +81,5 @@ const Table = (props) => {
   );
 
 };
-
-
 
 export default Table;

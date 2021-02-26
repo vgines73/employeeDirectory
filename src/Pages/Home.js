@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SearchForm from '../Components/SearchForm/SearchForm';
 import SearchResults from '../Components/SearchResults/SearchResults';
 import API from '../utils/API'
-
+// styling for BREH logo
 const styles = {
     spanStyle: {
         color: "red",
@@ -18,7 +18,7 @@ export default class Home extends Component {
         filteredResults: [],
         error: ""
     };
-
+    // where we call the setState
     componentDidMount() {
         //fetching api of all employees
         API.getNameList()
@@ -26,7 +26,9 @@ export default class Home extends Component {
             .then(res => {
                 // console.log(res.data.results)
                 this.setState({ 
+                    // for all the employee data
                     results: res.data.results,
+                    // for the employee first name when searched
                     filteredResults: res.data.results,
                 })
             })
@@ -34,6 +36,7 @@ export default class Home extends Component {
     };
     // updates input state
     handleInputChange = event => {
+        // targets the value we are looking for (first name of employee)
         this.setState({ search: event.target.value});
     };
     // resets the employee directory

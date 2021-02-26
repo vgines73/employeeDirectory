@@ -3,6 +3,7 @@ import './SearchForm.css'
 // for search bar to search for the first name of employee
 const SearchForm = (props) => {
     // console.log(props.results);
+    // returns first name of employee
     return (
         <form className="search">
             <div className="form-group">
