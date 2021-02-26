@@ -21,7 +21,9 @@ const SearchForm = (props) => {
                         <option value={employee.name.first} key={index}></option>
                     ))}
                 </datalist>
-                <button type="submit" className="btn btn-primary">Reset</button>
+                {/* handles the reset to bring back the employee directory list */}
+                <button type="submit" onClick={props.handleReset} className="btn btn-primary">Reset</button>  
+                {/* handles the search for the first name of the employee for the search form bar */}
                 <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">Search</button>
             </div>
         </form>

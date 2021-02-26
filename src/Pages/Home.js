@@ -15,6 +15,7 @@ export default class Home extends Component {
     state ={
         search: "",
         results: [],
+        filteredResults: [],
         error: ""
     };
 
@@ -26,6 +27,7 @@ export default class Home extends Component {
                 // console.log(res.data.results)
                 this.setState({ 
                     results: res.data.results,
+                    filteredResults: res.data.results,
                 })
             })
             .catch(err => console.log(err))
@@ -34,13 +36,24 @@ export default class Home extends Component {
     handleInputChange = event => {
         this.setState({ search: event.target.value});
     };
+    // resets the employee directory
+    handleReset = event => {
+        // prevents form from refreshing
+        event.preventDefault();
+        //created variable to alter the results
+        const results = this.state.results
+
+        // console.log("working");
+        this.setState({ filteredResults: results })
+    }
+    // submits the form
     handleFormSubmit = event => {
         // prevents form from refreshing
         event.preventDefault();
         // shows updated results of finding the first name of the employee
         this.setState({
             ...this.state,
-            results: this.state.results.filter(
+            filteredResults: this.state.results.filter(
                 (employee) => employee.name.first === this.state.search
             )
         })
@@ -50,14 +63,17 @@ export default class Home extends Component {
             // return everything on the screen SearchForm is the search bar; SearchResults is the table of employees
             <div><br/>
                 <h1 className="text-center"><span style={styles.spanStyle}>BREH's</span> Employee Directory</h1><br />
+                {/* search bar */}
                 <SearchForm 
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}
-                    results={this.state.results}
+                    handleReset={this.handleReset}
+                    results={this.state.filteredResults}
                 />
                 {this.state.results.length === 0 ?
-                <p>loading...</p>: 
-                <SearchResults results={this.state.results} />
+                    <p>loading...</p> : 
+                // shows the table
+                <SearchResults results={this.state.filteredResults} />
             }
             </div>
         )
